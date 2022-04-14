@@ -1,4 +1,9 @@
 class SceneMain extends Phaser.Scene {
+  
+  getCameras(){
+    return this.cameras;
+  }
+  
   constructor() {
     super({ key: "SceneMain" });
   }
