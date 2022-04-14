@@ -21,11 +21,11 @@ class SceneMain extends Phaser.Scene {
       repeat: -1
     });
 
-    this.chunkSize = 16;
-    this.tileSize = 16;
+    this.chunkSize = 32;
+    this.tileSize = 8;
     this.cameraSpeed = 10;
 
-    this.cameras.main.setZoom(2);
+    this.cameras.main.setZoom(1);
     this.followPoint = new Phaser.Math.Vector2(
       this.cameras.main.worldView.x + (this.cameras.main.worldView.width * 0.5),
       this.cameras.main.worldView.y + (this.cameras.main.worldView.height * 0.5)
