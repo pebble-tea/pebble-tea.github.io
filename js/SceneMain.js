@@ -1,13 +1,3 @@
-saveCanvas : function () {
-                                var link = document.createElement('a');
-                                link.href = this.game.canvas.toDataURL('image/png');
-                                link.download = 'Highscore.jpg';
-                                document.body.appendChild(link);
-                                link.click();
-                                document.body.removeChild(link);  
-}
-
-
 class SceneMain extends Phaser.Scene {
   
   constructor() {
@@ -114,7 +104,7 @@ class SceneMain extends Phaser.Scene {
       this.followPoint.x += this.cameraSpeed;
     }
 
-    this.keySpace.once(()=>{console.log("Once!"); saveCanvas();})
+    this.keySpace.once(()=>{console.log("Once!");})
     
     this.cameras.main.centerOn(this.followPoint.x, this.followPoint.y);
   }
