@@ -40,6 +40,8 @@ class SceneMain extends Phaser.Scene {
     this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
     this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Space);
     
+    this.screenshots = [];
+    
   }
 
   getChunk(x, y) {
@@ -91,7 +93,7 @@ class SceneMain extends Phaser.Scene {
       }
     }
 
-    if (this.keyW.isDown) {
+    /*if (this.keyW.isDown) {
       this.followPoint.y -= this.cameraSpeed;
     }
     if (this.keyS.isDown) {
@@ -102,8 +104,13 @@ class SceneMain extends Phaser.Scene {
     }
     if (this.keyD.isDown) {
       this.followPoint.x += this.cameraSpeed;
-    }
+    }*/
     
-    this.cameras.main.centerOn(this.followPoint.x, this.followPoint.y);
+    for(x=0;x<(this.chunkSize * this.tileSize * 10))
+    {
+      this.followPoint.x = x;
+      this.cameras.main.centerOn(this.followPoint.x, this.followPoint.y);
+      game.renderer.snapshot((image)=>{this.screenshots.push(image);});
+    }
   }
 }
