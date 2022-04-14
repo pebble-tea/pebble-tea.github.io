@@ -103,8 +103,6 @@ class SceneMain extends Phaser.Scene {
     if (this.keyD.isDown) {
       this.followPoint.x += this.cameraSpeed;
     }
-
-    this.keySpace.once(()=>{console.log("Once!");})
     
     this.cameras.main.centerOn(this.followPoint.x, this.followPoint.y);
   }
