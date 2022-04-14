@@ -27,7 +27,7 @@ class SceneMain extends Phaser.Scene {
     });
 
     this.chunkSize = 32;
-    this.tileSize = 8;
+    this.tileSize = 16;
     this.cameraSpeed = 10;
 
     this.cameras.main.setZoom(1);
