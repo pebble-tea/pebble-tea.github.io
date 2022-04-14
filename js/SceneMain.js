@@ -1,8 +1,14 @@
+saveCanvas : function () {
+                                var link = document.createElement('a');
+                                link.href = this.game.canvas.toDataURL('image/png');
+                                link.download = 'Highscore.jpg';
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);  
+}
+
+
 class SceneMain extends Phaser.Scene {
-  
-  getCameras(){
-    return this.cameras;
-  }
   
   constructor() {
     super({ key: "SceneMain" });
@@ -42,6 +48,8 @@ class SceneMain extends Phaser.Scene {
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
     this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Space);
+    
   }
 
   getChunk(x, y) {
@@ -106,6 +114,8 @@ class SceneMain extends Phaser.Scene {
       this.followPoint.x += this.cameraSpeed;
     }
 
+    this.keySpace.once(()=>{console.log("Once!"); saveCanvas();})
+    
     this.cameras.main.centerOn(this.followPoint.x, this.followPoint.y);
   }
 }
